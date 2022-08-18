@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+    <title>Stories4Me</title>
+</head>
+<body class="w3-container">
+    <h1>Stories4Me</h1>
+    <div class="w3-bar w3-light-gray">
+        <a href="/" class="w3-bar-item w3-button w3-green">Home</a>
+        <a href="create" class="w3-bar-item w3-button">Create</a>
+    </div>
+    
+    <div class="w3-row">
+        {% for story in stories %}
+            <div class="w3-col s3">
+                <h3>{{story.title}}</h3>
+                <p>{{story.story}}</p>
+                <a class="w3-button w3-red" href="{{ url_for('delete', id=story.id) }}">Delete</a>
+                <a class="w3-button w3-blue" href="{{ url_for('update', id=story.id) }}">Update</a>
+                <br>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
